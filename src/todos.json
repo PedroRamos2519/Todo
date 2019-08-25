@@ -1,0 +1,10 @@
+{
+    "todos": [
+        {
+            "title": "Todo 1",
+            "responsible": "Pedro",
+            "description": "Limpiar",
+            "priority": "low"
+        }
+    ]
+}
