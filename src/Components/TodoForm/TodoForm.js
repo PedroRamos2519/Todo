@@ -1,26 +1,23 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class TodoForm extends Component {
-  constructor () {
-    super();
-    this.state = {
-      title: '',
-      responsible: '',
-      description: '',
-      priority: 'low'
-    };
+  state = {
+    title: '',
+    responsible: '',
+    description: '',
+    priority: 'low'
   }
   
   handleSubmit = (e) => {
-    e.preventDefault();
-    this.props.onAddTodo(this.state);
+    e.preventDefault()
+    this.props.onAddTodo(this.state)
   }
 
   handleInputChange = (e) => {
-    const {value, name} = e.target;
+    const {value, name} = e.target
     this.setState({
       [name]: value
-    });
+    })
   }
 
   //
@@ -65,9 +62,9 @@ class TodoForm extends Component {
               value={this.state.priority}
               onChange={this.handleInputChange}
             >
-              <option>low</option>
-              <option>medium</option>
-              <option>high</option>
+              <option value="low">low</option>
+              <option value="medium">medium</option>
+              <option value="high">high</option>
             </select>
           </div>
           <button type="submit" className="btn btn-primary">
@@ -79,4 +76,4 @@ class TodoForm extends Component {
   }
 }
 
-export default TodoForm;
+export default TodoForm
