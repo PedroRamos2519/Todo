@@ -1,7 +1,7 @@
 {
     "todos": [
         {
-            "title": "Todo 1",
+            "title": "Tarea",
             "responsible": "Pedro",
             "description": "Limpiar",
             "priority": "low"

@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import { todos } from './todos.json';
-import TodoForm from './Components/TodoForm';
+import TodoForm from './Components/TodoForm/TodoForm';
+import { todos } from './Components/todos.json';
+import TodoList from './Components/TodoList';
 
 class App extends Component {
   constructor() {
@@ -11,69 +12,39 @@ class App extends Component {
     this.state = {
       todos
     }
-    this.handleAddTodo = this.handleAddTodo.bind(this);
-  }
 
-  removeTodo(index) {
+  }
+  //Cambie a usar Arrow Functions en estos dos metodos removeTodo y handleAddTodo
+
+  removeTodo = (index) => {
     this.setState({
       todos: this.state.todos.filter((e, i) => {
-        return i !== index
+          return i !== index
       })
     });
   }
 
-  handleAddTodo(todo) {
+  handleAddTodo = (todo) => {
     this.setState({
       todos: [...this.state.todos, todo]
     })
   }
 
   render() {
-    const todos = this.state.todos.map((todo, i) => {
-      return (
-        <div className="col-md-4" key={i}>
-          <div className="card mt-4">
-            <div className="card-title text-center">
-              <h3>{todo.title}</h3>
-              <span className="badge badge-pill badge-danger ml-2">
-                {todo.priority}
-              </span>
-            </div>
-            <div className="card-body">
-              <p>{todo.description}</p>
-              <p><mark>{todo.responsible}</mark></p>
-            </div>
-            <div className="card-footer">
-              <button className="btn btn-danger" onClick={this.removeTodo.bind(this, i)}>
-                Delete
-              </button>
-            </div>
-          </div>
-        </div>
-      )
-    });
-
     return (
       <div className="App">
-        <nav className="navbar navbar-dark bg-dark">
-          <a href="" className="navbar-brand">
-            Todos
-            <span className="badge badge-pill badge-light ml-2">
-              {this.state.todos.length}
-            </span>
-          </a>
-        </nav>
-        <div className="container">
+        <div className="container" >
           <div className="row mt-4">
             <div className="col-md-4 text-center">
               <img src={logo} className="App-logo" alt="logo"></img>
-              <TodoForm onAddTodo={this.handleAddTodo}></TodoForm>
+              <TodoForm onAddTodo={this.handleAddTodo}/>
             </div>
             <div className="col-md-8">
-              <div className="row">
-                { todos }
-              </div>
-            </div>
+              <TodoList 
+                todos = {this.state.todos}
+                removeTodo = {this.removeTodo}
+              />
+            </div>     
           </div>
         </div>
       </div>
