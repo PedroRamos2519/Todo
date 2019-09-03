@@ -8,11 +8,13 @@ class TodoForm extends Component {
     priority: 'low'
   }
   
+  //Cambie esta function por Arrow Fuction
   handleSubmit = (e) => {
     e.preventDefault()
     this.props.onAddTodo(this.state)
   }
 
+  //Cambie esta function por Arrow Fuction
   handleInputChange = (e) => {
     const {value, name} = e.target
     this.setState({
@@ -20,7 +22,6 @@ class TodoForm extends Component {
     })
   }
 
-  //
   render() {
     return (
       <div className="card">

@@ -3,6 +3,9 @@ import React, { Component } from 'react'
 class TodoList extends Component {
   render() {
     return(
+      //Elimine la const Todos y guarde el formulario en el metodo class para solo mandarlo a llamar en App.js
+      //con <TodoList/>
+      //Utilice un documento js aparte para Refactorizarlo
       <div className="row">
         { this.props.todos.map((todo, i) => {
           return (

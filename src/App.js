@@ -7,12 +7,14 @@ import { todos } from './Components/todos.json'
 import TodoList from './Components/TodoList'
 
 class App extends Component {
+  //Elimine el constructor para solo quedarme con el state y que el codigo se vea mas limpio
   state = {
     todos
   }
   
-  //Cambie a usar Arrow Functions en estos dos metodos removeTodo y handleAddTodo
-  removeTodo = index => {
+  //Cambie a usar Arrow Function en este metodo removeTodo
+  //removeTodo eliminar una tarea de la lista de Todos
+  removeTodo = (index) => {
     this.setState({
       todos: this.state.todos.filter((e, i) => {
           return i !== index
@@ -20,7 +22,9 @@ class App extends Component {
     })
   }
   
-  handleAddTodo = todo => {
+  //Cambie a usar Arrow Functions en este metodo handleAddTodo
+  //handleAddTodo agregar una tarea a la lista de Todos
+  handleAddTodo = (todo) => {
     this.setState({
       todos: [...this.state.todos, todo]
     })
